@@ -60,6 +60,9 @@ let validar = () => {
     }
 }
 validar()
+// for each
+
+
 //Estructura de control parser
 
 let a = 4
