@@ -25,6 +25,14 @@ const ciclo = () => {
     }
 }
 ciclo()
+// for each
+cosa.forEach(cisco =>{
+    cisco.forEach(saske =>{
+        console.log(saske);
+        
+    })
+})
+
 // for in
 const guardado = () => {
     for(let i in cosa){
@@ -60,7 +68,6 @@ let validar = () => {
     }
 }
 validar()
-// for each
 
 
 //Estructura de control parser
