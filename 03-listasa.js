@@ -59,7 +59,7 @@ let info = () => {
 
     //facil y es accecible
     datos.map((cosa)=>{
-        console.log(cosa.nombre);
+        console.log(`Su nombre es ${cosa.nombre} y tiene ${cosa.edad}`);
         
     })
 }
