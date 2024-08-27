@@ -1,5 +1,7 @@
 //Realizar un areglo con 2 dimensiones y guardar dos areglos internos y dar lectura a los datos internos
 
+//Alejandro Navarro Gomez
+
 let cosa = [
     [1, 2, 3], [3, 5, 6]
 ]
@@ -38,7 +40,7 @@ const guardado = () => {
     for(let i in cosa){
         let dado = cosa[i]
         for(let j in dado){
-            console.log(`${j}`);
+            console.log(`${dado[j]}`);
             
         }
     }
