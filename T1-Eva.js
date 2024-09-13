@@ -9,7 +9,7 @@ class Coperativa {
         this._direccion = Direccion;
         this._telefono = Telefono;
         this._agregar = [];
-        this._sueldo = 0;
+        this._sueldo = 0;   
         this._horas = Horas;
         this._costoHora = costoHora;
     }
