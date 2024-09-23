@@ -1,8 +1,9 @@
 //Alejandro Navarro Gómez
 
 class alumno {
-    constructor(nombre) {
+    constructor(nombre,control) {
         this._estudiante = nombre
+        this._control = control
         this._calificacion = []
     }
     subirCalificacion(Cali) {
@@ -10,7 +11,7 @@ class alumno {
     }
 
     mensaje() {
-        console.log(`Alumno ${this._estudiante}`);
+        console.log(`Alumno ${this._estudiante}, Matricula ${this._control}`);
         this._calificacion.forEach((cali => {
             cali.mostrar()
         }))
@@ -60,8 +61,8 @@ subirTodo = () => {
     const materia2 = new materia("Fisica")
     const materia3 = new materia("Datos")
 
-    let alumn1 = new alumno("Dany")
-    let alumn2 = new alumno("Luis")
+    let alumn1 = new alumno("Dany", "23f4578")
+    let alumn2 = new alumno("Luis", "23f4079")
 
     alumn1.subirCalificacion(new califiaciones(materia1, docent1, 90, 95))
     alumn1.subirCalificacion(new califiaciones(materia2, docent2, 85, 75))
