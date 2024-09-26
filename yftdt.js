@@ -1,124 +1,50 @@
-class Calificaciones {
-    constructor(calificacion) {
-        this._calificacion = calificacion;
+// Función para hacer el heapify de un subárbol en un índice i
+function heapify(arr, n, i) {
+    let largest = i; // Inicializar el nodo más grande como raíz
+    let left = 2 * i + 1; // Hijo izquierdo
+    let right = 2 * i + 2; // Hijo derecho
+
+    // Si el hijo izquierdo es más grande que la raíz
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left;
     }
 
-    imprimirCalificacion() {
-        console.log("Calificación: " + this._calificacion);
-    }
-}
-
-class Materia {
-    constructor(nombre, maestro) {
-        this._nombre = nombre;
-        this._maestro = maestro;
-        this._calificaciones = [];
-    }
-    
-    subirCalificacion(calificacion) {
-        this._calificaciones.push(calificacion);
+    // Si el hijo derecho es más grande que el nodo más grande encontrado hasta ahora
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right;
     }
 
-    imprimirCalificaciones() {
-        console.log("Calificaciones de " + this._nombre + ":");
-        this._calificaciones.forEach((calificacion) => {
-            console.log(" - " + calificacion._calificacion);
-        });
-    }
+    // Si el nodo más grande no es la raíz
+    if (largest !== i) {
+        // Intercambiar el nodo más grande con la raíz
+        [arr[i], arr[largest]] = [arr[largest], arr[i]];
 
-    imprimirInfo() {
-        console.log("Materia: " + this._nombre);
-        console.log("Maestro: " + this._maestro);
+        // Recursivamente aplicar heapify en el subárbol afectado
+        heapify(arr, n, largest);
     }
 }
 
-class Alumno {
-    constructor(nombre, control) {
-        this._nombre = nombre;
-        this._control = control;
-        this._materias = [];
+// Función principal para el HeapSort
+function heapSort(arr) {
+    let n = arr.length;
+
+    // Construir el heap (reorganizar el array)
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+        heapify(arr, n, i);
     }
 
-    agregarMateria(materia) {
-        this._materias.push(materia);
+    // Extraer uno por uno los elementos del heap
+    for (let i = n - 1; i > 0; i--) {
+        // Mover la raíz actual al final
+        [arr[0], arr[i]] = [arr[i], arr[0]];
+
+        // Llamar recursivamente a heapify en el heap reducido
+        heapify(arr, i, 0);
     }
 
-    imprimirMaterias() {
-        console.log("Materias de " + this._nombre + ":");
-        this._materias.forEach((materia) => {
-            console.log(" - " + materia._nombre);
-        });
-    }
-
-    imprimirInfo() {
-        console.log("Control: " + this._control);
-        console.log("Nombre: " + this._nombre);
-    }
+    return arr;
 }
 
-class Maestro {
-    constructor(nombre) {
-        this._nombre = nombre;
-    }
-
-    imprimirInfo() {
-        console.log("Nombre: " + this._nombre);
-    }
-}
-
-class Promedio {
-    constructor(materias) {
-        this._materias = materias;
-    }
-
-    calcularPromedio() {
-        let suma = 0;
-        let contador = 0;
-        this._materias.forEach((materia) => {
-            materia._calificaciones.forEach((calificacion) => {
-                suma += parseFloat(calificacion._calificacion);
-                contador++;
-            });
-        });
-        return (suma / contador).toFixed(2);
-    }
-}
-
-// Creación de instancias
-let maestro = new Maestro("Profesor X");
-let vectorial = new Materia("Vectorial", maestro);
-let fisica = new Materia("Fisica", maestro);
-
-let cali1v = new Calificaciones(9);
-let cali2v = new Calificaciones(8.5);
-let cali3v = new Calificaciones(10);
-
-vectorial.subirCalificacion(cali1v);
-vectorial.subirCalificacion(cali2v);
-vectorial.subirCalificacion(cali3v);
-
-let cali1f = new Calificaciones(7);
-let cali2f = new Calificaciones(6);
-let cali3f = new Calificaciones(8);
-
-fisica.subirCalificacion(cali1f);
-fisica.subirCalificacion(cali2f);
-fisica.subirCalificacion(cali3f);
-
-let alumno1 = new Alumno("Ale Navarro", "23e20126");
-alumno1.agregarMateria(vectorial);
-alumno1.agregarMateria(fisica);
-
-// Llamadas a métodos imprimir
-console.log(`Alumno ${alumno1._nombre} con control "${alumno1._control}" tiene calificaciones:`);
-vectorial.imprimirInfo();
-vectorial.imprimirCalificaciones();
-
-fisica.imprimirInfo();
-fisica.imprimirCalificaciones();
-
-let promedioVectorial = new Promedio([vectorial]);
-let promedioFisica = new Promedio([fisica]);
-
-console.log(`Promedio de ${vectorial._nombre}: ${promedioVectorial.calcularPromedio()}`);
-console.log(`Promedio de ${fisica._nombre}: ${promedioFisica.calcularPromedio()}`);
+// Ejemplo de uso
+let arr = [12, 11, 13, 5, 6, 7];
+console.log("Array ordenado:", heapSort(arr));
