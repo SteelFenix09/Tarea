@@ -1,5 +1,15 @@
 {
   "dependencies": {
+    "express": "^4.21.1",
     "prompt-sync": "^4.2.0"
-  }
+  },
+  "name": "estructura-de-datos",
+  "version": "1.0.0",
+  "main": "01-repaso.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
