@@ -1,0 +1,16 @@
+
+.encabezado {
+    background-color: #a7fecf;
+    padding: 15px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    font-size: 3em;
+    border: 3px;
+    border-style: dashed;
+    border-color: floralwhite;
+    margin:center;
+  }
+.p1{
+    margin-left:200px;
+} 
+  

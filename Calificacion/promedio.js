@@ -5,6 +5,7 @@ class alumno {
         this._estudiante = nombre
         this._control = control
         this._calificacion = []
+        //yVvoy a dejor esto aca y tu checas el html y has lo que quieres ahi y con el css
     }
     subirCalificacion(Cali) {
         this._calificacion.push(Cali)
