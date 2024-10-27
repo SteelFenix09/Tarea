@@ -2,6 +2,8 @@ import './App.css';
 import Otro from "./Otro";
 import Formulario from './Formulario';
 import Formularioboot from './componentes/Formularioboot';
+import Propiedades from './componentes/Propiedades';
+import Estados from './componentes/Estados';
 /* let Mensaje = () => {
   return (
     <h1>Hi everyone</h1>
@@ -11,24 +13,12 @@ import Formularioboot from './componentes/Formularioboot';
 
 
 function App() {
+  /* const valeriable = 5
+  const valeriable2 = 10
+ */
   return (
     <>
-    <div className="row">
-    <div className="col-4">
-    </div>
-    <div className="col-4">
-    </div>
-    <div className="col-4">
-    </div>
-    </div>
-    <div className="App">
-      <h1>Hola</h1>
-      <Otro />
-      <Formulario />
-      <div className="container-fluid p-3 ">
-        <Formularioboot />
-      </div>
-    </div>
+    <Estados/>
     </>
   );
 }
