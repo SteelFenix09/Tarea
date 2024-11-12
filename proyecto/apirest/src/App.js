@@ -1,9 +1,7 @@
 import './App.css';
-import Otro from "./Otro";
-import Formulario from './Formulario';
-import Formularioboot from './componentes/Formularioboot';
-import Propiedades from './componentes/Propiedades';
-import Estados from './componentes/Estados';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Menu from './componentes/Inicio/Menu';
+import Rutas from './ruter/Rutas';
 /* let Mensaje = () => {
   return (
     <h1>Hi everyone</h1>
@@ -12,13 +10,18 @@ import Estados from './componentes/Estados';
 
 
 
+
 function App() {
-  /* const valeriable = 5
-  const valeriable2 = 10
- */
+  
   return (
     <>
-    <Estados/>
+    
+    <Router>
+      <div className='container-fluid'>
+        <Menu/>
+        <Rutas/>
+      </div>
+    </Router>
     </>
   );
 }
